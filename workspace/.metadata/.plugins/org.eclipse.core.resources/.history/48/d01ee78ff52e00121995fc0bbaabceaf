@@ -16,7 +16,7 @@ public interface SS2012FPGA{
 */
 
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity implements OnClickListener{
 	private SeekBar seekBar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,16 +26,16 @@ public class MainActivity extends Activity{
         seekBar = (SeekBar) findViewById(R.id.seekBar1); 
         
         View changeButton1 = this.findViewById(R.id.button1);   
-        changeButton1.setOnClickListener(buttonListener);   
+        changeButton1.setOnClickListener(this);   
         
         View changeButton2 = this.findViewById(R.id.button2);   
-        changeButton2.setOnClickListener(buttonListener);
+        changeButton2.setOnClickListener(this);
         
         View changeButton3 = this.findViewById(R.id.button3);   
-        changeButton3.setOnClickListener(buttonListener);
+        changeButton3.setOnClickListener(this);
         
         View changeButton4 = this.findViewById(R.id.button4);   
-        changeButton4.setOnClickListener(buttonListener);
+        changeButton4.setOnClickListener(this);
         
     }
         /*
@@ -45,21 +45,6 @@ public class MainActivity extends Activity{
     	}
     	*/
     /*******************************************************************/
-    
-private View.OnClickListener buttonListener = new View.OnClickListener(){
-    	public int f=0;
-    	public void onClick(View v){
-    		Button thisButton = (Button) v;
-    		if(f==0){
-    			thisButton.setText("í‚é~");
-    			f=1;
-    		}else{
-    			thisButton.setText("âÒì]");
-    			f=0;
-    		}
-    	}
-};
-    	
     
     //ç∂ÉÇÅ[É^ÇÃê≥ì]ÅEí‚é~êßå‰
     /*
@@ -123,11 +108,34 @@ private View.OnClickListener buttonListener = new View.OnClickListener(){
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
+	//@Override
+	public int f=0;
+	public void onClick(View v) {
+		if(v.getId() == R.id.button1){
+    		if(f==0){
+    			((Button)v).setText("í‚é~");
+    			f=1;
+    		}else{
+    			f=0;
+    			((Button)v).setText("ê≥ì]");
+    			}
+    		}
+   
 	}
-
-
-
-
+	
+	public int g=0;	
+    public void onClick2(View v){
+    	if(v.getId() == R.id.button2){
+    		if(g==0){
+    			((Button)v).setText("í‚é~");
+    			g=1;
+    		}else{
+    			g=0;
+    			((Button)v).setText("ê≥ì]");
+    			}
+    		}
+    	}
+	}
 
 	
 

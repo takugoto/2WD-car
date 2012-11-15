@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     	public void onClick(View v){
     		Button thisButton = (Button) v;
     		
-    		thisButton.setText("í‚é~");
+    		thisButton.setText("ÇÌÇÎÇ∑");
     	}
     	
     };

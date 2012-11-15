@@ -47,16 +47,11 @@ public class MainActivity extends Activity{
     /*******************************************************************/
     
 private View.OnClickListener buttonListener = new View.OnClickListener(){
-    	public int f=0;
+    	
     	public void onClick(View v){
     		Button thisButton = (Button) v;
-    		if(f==0){
-    			thisButton.setText("’âŽ~");
-    			f=1;
-    		}else{
-    			thisButton.setText("‰ñ“]");
-    			f=0;
-    		}
+    		
+    		thisButton.setText("’âŽ~");
     	}
 };
     	
