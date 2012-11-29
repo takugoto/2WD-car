@@ -1,0 +1,5 @@
+package com.example.wdcar;
+
+public interface SS2012FPGA {
+
+}

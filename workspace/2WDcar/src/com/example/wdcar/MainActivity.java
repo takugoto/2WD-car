@@ -9,15 +9,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.SeekBar;
 
-/*
-public interface SS2012FPGA{
-	public void setMotorTorque(int id, int torque);
-}
-*/
+
 
 
 public class MainActivity extends Activity{
 	private SeekBar seekBar;
+	private SS2012FPGA fpga = new SS2012FPGA_Impl();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,104 +23,102 @@ public class MainActivity extends Activity{
         seekBar = (SeekBar) findViewById(R.id.seekBar1); 
         
         View changeButton1 = this.findViewById(R.id.button1);   
-        changeButton1.setOnClickListener(buttonListener);   
+        changeButton1.setOnClickListener(buttonListener1);   
         
+        /*
         View changeButton2 = this.findViewById(R.id.button2);   
-        changeButton2.setOnClickListener(buttonListener);
+        changeButton2.setOnClickListener(buttonListener2);
+        */
         
         View changeButton3 = this.findViewById(R.id.button3);   
-        changeButton3.setOnClickListener(buttonListener);
+        changeButton3.setOnClickListener(buttonListener3);
         
-        View changeButton4 = this.findViewById(R.id.button4);   
-        changeButton4.setOnClickListener(buttonListener);
-        
-    }
         /*
-        Button button = (Button) findViewById(R.id.button1);
-        //OnClickListener buttonListener;
-        button.setOnClickListener(buttonListener);
-    	}
-    	*/
+        View changeButton4 = this.findViewById(R.id.button4);   
+        changeButton4.setOnClickListener(buttonListener4);
+        */
+    }
+
     /*******************************************************************/
     
-private View.OnClickListener buttonListener = new View.OnClickListener(){
+private View.OnClickListener buttonListener1 = new View.OnClickListener(){
     	public int f=0;
     	public void onClick(View v){
     		Button thisButton = (Button) v;
     		if(f==0){
     			thisButton.setText("í‚é~");
+    			fpga.setMotorTorque(0, 50);
     			f=1;
     		}else{
-    			thisButton.setText("âÒì]");
+    			thisButton.setText("ÉAÉNÉZÉã");
+    			fpga.setMotorTorque(0,0);
     			f=0;
     		}
     	}
+		
+};
+/*
+private View.OnClickListener buttonListener2 = new View.OnClickListener(){
+	public int f=0;
+	public void onClick(View v){
+		Button thisButton = (Button) v;
+		if(f==0){
+			thisButton.setText("í‚é~");
+			fpga.setMotorTorque(1, -50);
+			f=1;
+		}else{
+			thisButton.setText("îΩì]");
+			fpga.setMotorTorque(0, 0);
+			f=0;
+		}
+	}
 };
     	
-    
-    //ç∂ÉÇÅ[É^ÇÃê≥ì]ÅEí‚é~êßå‰
-    /*
-    public int f=0;	
-    public void onClick1(View v){
-    	if(v.getId() == R.id.button1){
-    		if(f==0){
-    			((Button)v).setText("í‚é~");
-    			f=1;
-    		}else{
-    			f=0;
-    			((Button)v).setText("ê≥ì]");
-    			}
-    		}
-    	}
-    
-    //ç∂ÉÇÅ[É^ÇÃîΩì]ÅEí‚é~êßå‰
-    public int g=0;	
-    public void onClick2(View v){
-    	if(v.getId() == R.id.button2){
-    		if(g==0){
-    			((Button)v).setText("í‚é~");
-    			g=1;
-    		}else{
-    			g=0;
-    			((Button)v).setText("ê≥ì]");
-    			}
-    		}
-    	}
-    
-    //âEÉÇÅ[É^ÇÃê≥ì]ÅEí‚é~êßå‰
-    public int h=0;	
-    public void onClick3(View v){
-    	if(v.getId() == R.id.button3){
-    		if(h==0){
-    			((Button)v).setText("í‚é~");
-    			h=1;
-    		}else{
-    			h=0;
-    			((Button)v).setText("ê≥ì]");
-    			}
-    		}
-    	}
-    
-    //âEÉÇÅ[É^ÇÃîΩì]ÅEí‚é~êßå‰
-    public int i=0;	
-    public void onClick4(View v){
-    	if(v.getId() == R.id.button4){
-    		if(i==0){
-    			((Button)v).setText("í‚é~");
-    			i=1;
-    		}else{
-    			i=0;
-    			((Button)v).setText("ê≥ì]");
-    			}
-    		}
-    	}
 */
+private View.OnClickListener buttonListener3 = new View.OnClickListener(){
+	public int f=0;
+	public void onClick(View v){
+		Button thisButton = (Button) v;
+		if(f==0){
+			thisButton.setText("í‚é~");
+			fpga.setMotorTorque(1, 50);
+			f=1;
+		}else{
+			thisButton.setText("ÉAÉNÉZÉã");
+			fpga.setMotorTorque(1, 0);
+			f=0;
+		}
+	}
+};
+/*
+private View.OnClickListener buttonListener4 = new View.OnClickListener(){
+	public int f=0;
+	public void onClick(View v){
+		Button thisButton = (Button) v;
+		if(f==0){
+			thisButton.setText("í‚é~");
+			fpga.setMotorTorque(0, -50);
+			f=1;
+		}else{
+			thisButton.setText("îΩì]");
+			fpga.setMotorTorque(0, 0);
+			f=0;
+		}
+	}
+};
+*/
+/*************************************************************************************/
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
-	}
+	
+}
+
 
 
 

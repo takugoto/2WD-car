@@ -1,0 +1,77 @@
+package com.example.wdcar;
+
+//import jp.ac.utsunomiyau.android.helloworld.R;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.SeekBar;
+
+
+
+public interface SS2012FPGA{
+	public void setMotorTorque(int id, int torque);
+}
+
+
+
+public class MainActivity extends Activity{
+	private SeekBar seekBar;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        seekBar = (SeekBar) findViewById(R.id.seekBar1); 
+        
+        View changeButton1 = this.findViewById(R.id.button1);   
+        changeButton1.setOnClickListener(buttonListener);   
+        
+        View changeButton2 = this.findViewById(R.id.button2);   
+        changeButton2.setOnClickListener(buttonListener);
+        
+        View changeButton3 = this.findViewById(R.id.button3);   
+        changeButton3.setOnClickListener(buttonListener);
+        
+        View changeButton4 = this.findViewById(R.id.button4);   
+        changeButton4.setOnClickListener(buttonListener);
+        
+    }
+        /*
+        Button button = (Button) findViewById(R.id.button1);
+        //OnClickListener buttonListener;
+        button.setOnClickListener(buttonListener);
+    	}
+    	*/
+    /*******************************************************************/
+    
+private View.OnClickListener buttonListener = new View.OnClickListener(){
+    	public int f=0;
+    	public void onClick(View v){
+    		Button thisButton = (Button) v;
+    		if(f==0){
+    			thisButton.setText("’âŽ~");
+    			f=1;
+    		}else{
+    			thisButton.setText("‰ñ“]");
+    			f=0;
+    		}
+    	}
+};
+    	
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+	}
+
+
+
+
+
+	
+

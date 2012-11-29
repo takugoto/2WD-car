@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SS2012FPGA_Impl.java&apos; to &apos;2WDcar/src/com.example.wdcar&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;SS2012FPGA&apos;&#x0D;&#x0A;- 宛先要素: &apos;2WDcar/src/com.example.wdcar&apos;&#x0D;&#x0A;- オリジナル要素: &apos;SS2012FPGA_Impl.java&apos;" description="コンパイル単位をコピー" destination="=2WDcar/src&lt;com.example.wdcar" element1="/src&lt;{SS2012FPGA_Impl.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1354170134038" units="1" version="1.0"/>
+</session>
