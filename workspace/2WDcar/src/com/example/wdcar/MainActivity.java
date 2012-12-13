@@ -52,8 +52,7 @@ public class MainActivity extends Activity{
         		new OnSeekBarChangeListener(){
         			public void onProgressChanged(SeekBar seekBar,int progress, boolean fromUser){
         				// ツマミをドラッグしたときに呼ばれる
-        				tv2.setText(""+progress);//シークバーの値をtv2にセット
-        				
+        				tv2.setText(""+(progress-1000));//シークバーの値をtv2にセット
         				}
         			public void onStartTrackingTouch(SeekBar seekBar){
         				// ツマミに触れたときに呼ばれる
@@ -72,15 +71,15 @@ private View.OnClickListener buttonListener1 = new View.OnClickListener(){
     	public int x;
     	public void onClick(View v){
     		Button thisButton = (Button) v;
-    		if(f==0){
-    			thisButton.setText("　  停止 　");
-    			x=seekBar.getProgress();//シークバーの値をxに代入
-    			fpga.setMotorTorque(0, x-50);
-    			f=1;
-    		}else{
+    		if(f==1){
     			thisButton.setText("左アクセル");
-    			fpga.setMotorTorque(0,0);
+    			x=seekBar.getProgress();//シークバーの値をxに代入
+    			fpga.setTorque(0, x-1000);
     			f=0;
+    		}else{
+    			thisButton.setText(" 　 停止　 ");
+    			fpga.setTorque(0,0);//停止
+    			f=1;
     		}
     	}
 		
@@ -108,15 +107,15 @@ private View.OnClickListener buttonListener3 = new View.OnClickListener(){
 	public int x;
 	public void onClick(View v){
 		Button thisButton = (Button) v;
-		if(f==0){
-			thisButton.setText("　  停止　 ");
-			x=seekBar.getProgress();//シークバーの値をxに代入
-			fpga.setMotorTorque(1, x-50);
-			f=1;
-		}else{
+		if(f==1){
 			thisButton.setText("右アクセル");
-			fpga.setMotorTorque(1, 0);
+			x=seekBar.getProgress();//シークバーの値をxに代入
+			fpga.setTorque(1, x-1000);
 			f=0;
+		}else{
+			thisButton.setText("　 停止　 ");
+			fpga.setTorque(1, 0);//停止
+			f=1;
 		}
 	}
 };

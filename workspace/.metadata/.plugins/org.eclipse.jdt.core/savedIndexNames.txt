@@ -1,9 +1,5 @@
 INDEX VERSION 1.126+C:\Documents and Settings\rlruser\My Documents\GitHub\2WD-car\workspace\.metadata\.plugins\org.eclipse.jdt.core
-647108901.index
-2574899908.index
-139409755.index
 397668830.index
-3657622979.index
-3435077720.index
+647108901.index
 1664405848.index
 340001512.index

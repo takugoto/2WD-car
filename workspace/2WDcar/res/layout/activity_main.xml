@@ -10,8 +10,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="25dp"
-        android:max="100"
-        android:progress="50" />
+        android:max="2000"
+        android:progress="1000" />
 
     <Button
         android:id="@+id/button1"
@@ -34,13 +34,21 @@
         android:text="右アクセル" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/seekBar1"
         android:layout_alignRight="@+id/button3"
-        android:layout_marginRight="23dp"
-        android:text="現在値：" />
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar1"
+        android:layout_marginRight="18dp"
+        android:layout_toLeftOf="@+id/textView2"
+        android:text="現在値" />
 
     <TextView
         android:id="@+id/textView1"
@@ -50,13 +58,5 @@
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/button1"
         android:text="motor speed" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/seekBar1"
-        android:layout_alignRight="@+id/button3"
-        android:text="0" />
 
 </RelativeLayout>
